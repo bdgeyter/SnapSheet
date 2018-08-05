@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BBE798F52114B4AF0068C210 /* SnapCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBE798F52114B4AF0068C210 /* SnapSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE798F82114B4AF0068C210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE798FA2114B4AF0068C210 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BBE798FD2114B4AF0068C210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		BBE798EC2114B4AF0068C210 = {
 			isa = PBXGroup;
 			children = (
-				BBE798F72114B4AF0068C210 /* SnapCard */,
+				BBE798F72114B4AF0068C210 /* SnapSheet */,
 				BBE798F62114B4AF0068C210 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,12 +46,12 @@
 		BBE798F62114B4AF0068C210 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BBE798F52114B4AF0068C210 /* SnapCard.app */,
+				BBE798F52114B4AF0068C210 /* SnapSheet.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BBE798F72114B4AF0068C210 /* SnapCard */ = {
+		BBE798F72114B4AF0068C210 /* SnapSheet */ = {
 			isa = PBXGroup;
 			children = (
 				BBE798F82114B4AF0068C210 /* AppDelegate.swift */,
@@ -61,15 +61,15 @@
 				BBE799012114B4B10068C210 /* LaunchScreen.storyboard */,
 				BBE799042114B4B10068C210 /* Info.plist */,
 			);
-			path = SnapCard;
+			path = SnapSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BBE798F42114B4AF0068C210 /* SnapCard */ = {
+		BBE798F42114B4AF0068C210 /* SnapSheet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BBE799072114B4B10068C210 /* Build configuration list for PBXNativeTarget "SnapCard" */;
+			buildConfigurationList = BBE799072114B4B10068C210 /* Build configuration list for PBXNativeTarget "SnapSheet" */;
 			buildPhases = (
 				BBE798F12114B4AF0068C210 /* Sources */,
 				BBE798F22114B4AF0068C210 /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = SnapCard;
+			name = SnapSheet;
 			productName = SnapCard;
-			productReference = BBE798F52114B4AF0068C210 /* SnapCard.app */;
+			productReference = BBE798F52114B4AF0068C210 /* SnapSheet.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BBE798F02114B4AF0068C210 /* Build configuration list for PBXProject "SnapCard" */;
+			buildConfigurationList = BBE798F02114B4AF0068C210 /* Build configuration list for PBXProject "SnapSheet" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BBE798F42114B4AF0068C210 /* SnapCard */,
+				BBE798F42114B4AF0068C210 /* SnapSheet */,
 			);
 		};
 /* End PBXProject section */
@@ -315,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BBE798F02114B4AF0068C210 /* Build configuration list for PBXProject "SnapCard" */ = {
+		BBE798F02114B4AF0068C210 /* Build configuration list for PBXProject "SnapSheet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBE799052114B4B10068C210 /* Debug */,
@@ -324,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBE799072114B4B10068C210 /* Build configuration list for PBXNativeTarget "SnapCard" */ = {
+		BBE799072114B4B10068C210 /* Build configuration list for PBXNativeTarget "SnapSheet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBE799082114B4B10068C210 /* Debug */,

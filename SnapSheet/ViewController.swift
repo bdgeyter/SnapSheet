@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  SnapCard
+//  SnapSheet
 //
 //  Created by Bram De Geyter on 03/08/2018.
 //  Copyright © 2018 Palaplu. All rights reserved.
