@@ -13,8 +13,11 @@ class SnapSheetViewController: UIViewController {
     /// MARK: - VIEWS
     private let sheet: UIView = {
         let view = UIView()
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         view.layer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        view.layer.cornerRadius = 8.0
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowRadius = 2.0
         return view
     }()
     
