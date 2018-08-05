@@ -55,7 +55,13 @@ class SnapSheetViewController: UIViewController {
             slideAlongYAxis.addLinearVelocity( CGPoint(x: 0.0, y: velocity.y), for: sheet)
             if velocity.y > 0 {
                 //down
-                snap.snapPoint.y = view.bounds.height - 100
+                let locationY = gesture.location(in: sheet.superview).y
+                let maxY = view.bounds.height - 100
+                guard locationY < maxY else {
+                    dismiss(animated: true, completion: nil)
+                    return
+                }
+                snap.snapPoint.y = maxY
             } else {
                 //up
                 snap.snapPoint.y = 100
