@@ -282,12 +282,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J5U2BY2Y7;
-				INFOPLIST_FILE = SnapCard/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SnapSheet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.palaplu.SnapCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.palaplu.SnapSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -300,12 +300,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J5U2BY2Y7;
-				INFOPLIST_FILE = SnapCard/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SnapSheet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.palaplu.SnapCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.palaplu.SnapSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

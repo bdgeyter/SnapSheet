@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    /// MARK: - VIEWS
     private let sheet: UIView = {
         let view = UIView()
         view.backgroundColor = .green
@@ -16,10 +18,12 @@ class ViewController: UIViewController {
         return view
     }()
     
+    // MARK: - PHYSICS
     private lazy var animator: UIDynamicAnimator = UIDynamicAnimator(referenceView: view)
-    private lazy var slideAlongYAxis: UIAttachmentBehavior = {
-        let slide = UIAttachmentBehavior.slidingAttachment(with: sheet, attachmentAnchor: sheet.center, axisOfTranslation: CGVector(dx: 1.0, dy: 0.0))
-        return slide
+    private lazy var slideAlongYAxis: UIDynamicItemBehavior = {
+        let slideAlongYAxis = UIDynamicItemBehavior(items: [sheet])
+        slideAlongYAxis.allowsRotation = false
+        return slideAlongYAxis
     }()
     private lazy var snap = UISnapBehavior(item: sheet, snapTo: view.center)
 
@@ -29,20 +33,33 @@ class ViewController: UIViewController {
         //Pan
         let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
         sheet.addGestureRecognizer(pan)
-        sheet.frame = CGRect(x: 0.0, y: view.bounds.height - 50.0, width: view.bounds.width, height: view.bounds.height)
+        
+        //Sheet
+        sheet.frame = CGRect(x: 0.0, y: view.bounds.height - 100.0, width: view.bounds.width, height: view.bounds.height)
         view.addSubview(sheet)
         
+        //Physics
+        animator.addBehavior(slideAlongYAxis)
+        slideAlongYAxis.addChildBehavior(snap)
     }
 
     @objc func didPan(_ gesture: UIPanGestureRecognizer) {
         switch gesture.state {
-        case .began:
-            animator.removeAllBehaviors()
-            animator.addBehavior(slideAlongYAxis)
         case .changed:
-            slideAlongYAxis.anchorPoint = gesture.location(in: sheet.superview)
-        //case .ended:
-            //animator.addBehavior(snap)
+            //translation
+            let deltaY = gesture.translation(in: sheet.superview).y
+            snap.snapPoint.y += deltaY
+            gesture.setTranslation(.zero, in: sheet.superview)
+        case .ended:
+            let velocity = gesture.velocity(in: sheet.superview)
+            slideAlongYAxis.addLinearVelocity( CGPoint(x: 0.0, y: velocity.y), for: sheet)
+            if velocity.y > 0 {
+                //down
+                snap.snapPoint.y = view.bounds.height - 100
+            } else {
+                //up
+                snap.snapPoint.y = 100
+            }
         default:
             break
         }
