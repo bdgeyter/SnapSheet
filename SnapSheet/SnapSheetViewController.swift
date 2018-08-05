@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SnapSheetViewController.swift.swift
 //  SnapSheet
 //
 //  Created by Bram De Geyter on 03/08/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SnapSheetViewController: UIViewController {
     
     /// MARK: - VIEWS
     private let sheet: UIView = {
