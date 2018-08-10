@@ -58,6 +58,11 @@ class SnapSheetViewController: UIViewController {
         animator.addBehavior(slideAlongYAxis)
         slideAlongYAxis.addChildBehavior(snap)
     }
+    
+    override func show(_ vc: UIViewController, sender: Any?) {
+        super.show(vc, sender: sender)
+        viewController = vc
+    }
 
     @objc func didPan(_ gesture: UIPanGestureRecognizer) {
         switch gesture.state {
