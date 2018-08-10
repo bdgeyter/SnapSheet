@@ -44,6 +44,9 @@ class SnapSheetViewController: UIViewController {
         //Physics
         animator.addBehavior(slideAlongYAxis)
         slideAlongYAxis.addChildBehavior(snap)
+        
+        //Embed container view
+        embedContainer()
     }
 
     @objc func didPan(_ gesture: UIPanGestureRecognizer) {
@@ -72,6 +75,15 @@ class SnapSheetViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    func embedContainer() {
+        let tableVC = SnapSheetTableViewController(style: .plain)
+        tableVC.willMove(toParentViewController: self)
+        addChildViewController(tableVC)
+        sheet.addSubview(tableVC.tableView)
+        tableVC.tableView.frame = sheet.bounds
+        tableVC.didMove(toParentViewController: self)
     }
 }
 

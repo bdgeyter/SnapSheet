@@ -12,6 +12,7 @@
 		BBE798FE2114B4AF0068C210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE798FC2114B4AF0068C210 /* Main.storyboard */; };
 		BBE799002114B4B10068C210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBE798FF2114B4B10068C210 /* Assets.xcassets */; };
 		BBE799032114B4B10068C210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE799012114B4B10068C210 /* LaunchScreen.storyboard */; };
+		BBE7990B211900270068C210 /* SnapSheetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE7990A211900270068C210 /* SnapSheetTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		BBE798FF2114B4B10068C210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBE799022114B4B10068C210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBE799042114B4B10068C210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBE7990A211900270068C210 /* SnapSheetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapSheetTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				BBE798F82114B4AF0068C210 /* AppDelegate.swift */,
 				BBE798FA2114B4AF0068C210 /* SnapSheetViewController.swift */,
+				BBE7990A211900270068C210 /* SnapSheetTableViewController.swift */,
 				BBE798FC2114B4AF0068C210 /* Main.storyboard */,
 				BBE798FF2114B4B10068C210 /* Assets.xcassets */,
 				BBE799012114B4B10068C210 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBE7990B211900270068C210 /* SnapSheetTableViewController.swift in Sources */,
 				BBE798FB2114B4AF0068C210 /* SnapSheetViewController.swift in Sources */,
 				BBE798F92114B4AF0068C210 /* AppDelegate.swift in Sources */,
 			);
