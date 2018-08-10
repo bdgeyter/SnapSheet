@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB6DB60D211E2C640065A1C0 /* MainViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6DB60C211E2C640065A1C0 /* MainViewControler.swift */; };
 		BBE798F92114B4AF0068C210 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE798F82114B4AF0068C210 /* AppDelegate.swift */; };
 		BBE798FB2114B4AF0068C210 /* SnapSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE798FA2114B4AF0068C210 /* SnapSheetViewController.swift */; };
 		BBE798FE2114B4AF0068C210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE798FC2114B4AF0068C210 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB6DB60C211E2C640065A1C0 /* MainViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControler.swift; sourceTree = "<group>"; };
 		BBE798F52114B4AF0068C210 /* SnapSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE798F82114B4AF0068C210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE798FA2114B4AF0068C210 /* SnapSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapSheetViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				BBE798FA2114B4AF0068C210 /* SnapSheetViewController.swift */,
 				BBE7990A211900270068C210 /* SnapSheetTableViewController.swift */,
 				BBE798FC2114B4AF0068C210 /* Main.storyboard */,
+				BB6DB60C211E2C640065A1C0 /* MainViewControler.swift */,
 				BBE798FF2114B4B10068C210 /* Assets.xcassets */,
 				BBE799012114B4B10068C210 /* LaunchScreen.storyboard */,
 				BBE799042114B4B10068C210 /* Info.plist */,
@@ -140,6 +143,7 @@
 			files = (
 				BBE7990B211900270068C210 /* SnapSheetTableViewController.swift in Sources */,
 				BBE798FB2114B4AF0068C210 /* SnapSheetViewController.swift in Sources */,
+				BB6DB60D211E2C640065A1C0 /* MainViewControler.swift in Sources */,
 				BBE798F92114B4AF0068C210 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

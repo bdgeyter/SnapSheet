@@ -10,7 +10,20 @@ import UIKit
 
 class SnapSheetViewController: UIViewController {
     
-    /// MARK: - VIEWS
+    //MARK: - INTERFACE
+    var viewController: UIViewController? {
+        didSet {
+            guard viewController != oldValue else { return }
+            if let oldViewController = oldValue {
+                removeOld(oldViewController)
+            }
+            if let newViewController = viewController {
+                embedNew(newViewController)
+            }
+        }
+    }
+    
+    // MARK: - VIEWS
     private let sheet: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -44,9 +57,6 @@ class SnapSheetViewController: UIViewController {
         //Physics
         animator.addBehavior(slideAlongYAxis)
         slideAlongYAxis.addChildBehavior(snap)
-        
-        //Embed container view
-        embedContainer()
     }
 
     @objc func didPan(_ gesture: UIPanGestureRecognizer) {
@@ -77,13 +87,18 @@ class SnapSheetViewController: UIViewController {
         }
     }
     
-    func embedContainer() {
-        let tableVC = SnapSheetTableViewController(style: .plain)
-        tableVC.willMove(toParentViewController: self)
-        addChildViewController(tableVC)
-        sheet.addSubview(tableVC.tableView)
-        tableVC.tableView.frame = sheet.bounds
-        tableVC.didMove(toParentViewController: self)
+    private func removeOld(_ childViewController: UIViewController) {
+        willMove(toParentViewController: nil)
+        childViewController.view.removeFromSuperview()
+        childViewController.removeFromParentViewController()
+    }
+    
+    private func embedNew(_ childViewController: UIViewController) {
+        childViewController.willMove(toParentViewController: self)
+        addChildViewController(childViewController)
+        childViewController.view.frame = sheet.bounds
+        sheet.addSubview(childViewController.view)
+        childViewController.didMove(toParentViewController: self)
     }
 }
 
