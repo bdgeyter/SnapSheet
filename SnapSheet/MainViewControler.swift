@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? SnapSheetViewController else { return }
+        tableVC.tableView.isScrollEnabled = false
         destination.viewController = tableVC
     }
 }
