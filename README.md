@@ -1,6 +1,6 @@
 # SnapSheet
 
-[![CI Status](https://img.shields.io/travis/Dwayne Coussement/SnapSheet.svg?style=flat)](https://travis-ci.org/Dwayne Coussement/SnapSheet)
+[![CI Status](https://img.shields.io/travis/bdgeyter/SnapSheet.svg?style=flat)](https://travis-ci.org/bdgeyter/SnapSheet)
 [![Version](https://img.shields.io/cocoapods/v/SnapSheet.svg?style=flat)](https://cocoapods.org/pods/SnapSheet)
 [![License](https://img.shields.io/cocoapods/l/SnapSheet.svg?style=flat)](https://cocoapods.org/pods/SnapSheet)
 [![Platform](https://img.shields.io/cocoapods/p/SnapSheet.svg?style=flat)](https://cocoapods.org/pods/SnapSheet)
