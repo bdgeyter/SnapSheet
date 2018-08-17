@@ -1,0 +1,6 @@
+framework module SnapSheet {
+  umbrella header "SnapSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}

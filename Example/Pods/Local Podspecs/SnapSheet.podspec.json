@@ -1,0 +1,22 @@
+{
+  "name": "SnapSheet",
+  "version": "0.1.0",
+  "summary": "A short description of SnapSheet.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Dwayne Coussement/SnapSheet",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Dwayne Coussement": "Dwayne@intivoto.com"
+  },
+  "source": {
+    "git": "https://github.com/Dwayne Coussement/SnapSheet.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "SnapSheet/Classes/**/*"
+}

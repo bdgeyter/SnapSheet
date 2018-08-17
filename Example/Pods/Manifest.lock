@@ -1,0 +1,16 @@
+PODS:
+  - SnapSheet (0.1.0)
+
+DEPENDENCIES:
+  - SnapSheet (from `../`)
+
+EXTERNAL SOURCES:
+  SnapSheet:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SnapSheet: fcf28b609c8ae3192541b3892f58cfc1fade7e7c
+
+PODFILE CHECKSUM: 70769d41daeda945a26b74e2ea40aab137b4e639
+
+COCOAPODS: 1.5.3
