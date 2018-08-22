@@ -10,6 +10,8 @@ import UIKit
 
 public class SnapSheetViewController: UIViewController {
 
+	public var didUpdateSheetOriginTop: ((CGFloat) -> (Void))?
+
 	private var topAnchor: NSLayoutYAxisAnchor {
 		if #available(iOS 11.0, *) {
 			return view.safeAreaLayoutGuide.topAnchor
@@ -82,6 +84,10 @@ public class SnapSheetViewController: UIViewController {
 		//Physics
 		animator.addBehavior(slideAlongYAxis)
 		slideAlongYAxis.addChildBehavior(snap)
+		snap.action = { [weak self] in
+			guard let `self` = self else { return }
+			self.didUpdateSheetOriginTop?(self.sheet.frame.origin.y)
+		}
 	}
 
 	public override func show(_ vc: UIViewController, sender: Any?) {
@@ -99,6 +105,7 @@ public class SnapSheetViewController: UIViewController {
 		case .changed:
 			//translation
 			snap.snapPoint.y += gesture.translation(in: sheet.superview).y
+			didUpdateSheetOriginTop?(sheet.frame.origin.y)
 			gesture.setTranslation(.zero, in: sheet.superview)
 			state = .moving
 		case .ended:
@@ -120,6 +127,8 @@ public class SnapSheetViewController: UIViewController {
 				snap.snapPoint.y = sheetLayoutGuide.layoutFrame.minY
 				state = .open
 			}
+			didUpdateSheetOriginTop?(sheet.frame.origin.y)
+
 		default:
 			break
 		}
@@ -141,4 +150,3 @@ public class SnapSheetViewController: UIViewController {
 		childViewController.didMove(toParentViewController: self)
 	}
 }
-

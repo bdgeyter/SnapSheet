@@ -11,13 +11,18 @@ import SnapSheet
 
 class ViewController: UIViewController {
 
+	@IBOutlet weak var fabBottomConstraint: NSLayoutConstraint!
 	private let tableVC = SnapSheetTableViewController(style: .plain)
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let destination = segue.destination as? SnapSheetViewController else { return }
 		tableVC.tableView.isScrollEnabled = false
 		destination.viewController = tableVC
-	}
 
+		destination.didUpdateSheetOriginTop = { (newTop) in
+			let originY = self.view.frame.height - newTop
+			self.fabBottomConstraint.constant = originY
+		}
+	}
 }
 
