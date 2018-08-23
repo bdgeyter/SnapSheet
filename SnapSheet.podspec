@@ -23,7 +23,7 @@ An Apple Maps-style bottom sheet that snaps 👌
 
   s.homepage         = 'https://github.com/bdgeyter/SnapSheet'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Bram De Geyter' => 'bram.degeyter@palaplu.com' }
+  s.authors          = { "Bram De Geyter" => "bram.degeyter@palaplu.com", "Dwayne Coussement" => "Dwayne@intivoto.com" }
   s.source           = { :git => 'https://github.com/bdgeyter/SnapSheet.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'

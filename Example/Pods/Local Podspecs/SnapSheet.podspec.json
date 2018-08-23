@@ -9,7 +9,8 @@
     "file": "LICENSE"
   },
   "authors": {
-    "Bram De Geyter": "bram.degeyter@palaplu.com"
+    "Bram De Geyter": "bram.degeyter@palaplu.com",
+    "Dwayne Coussement": "Dwayne@intivoto.com"
   },
   "source": {
     "git": "https://github.com/bdgeyter/SnapSheet.git",

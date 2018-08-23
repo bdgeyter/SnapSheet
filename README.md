@@ -20,9 +20,10 @@ it, simply add the following line to your Podfile:
 pod 'SnapSheet'
 ```
 
-## Author
+## Authors
 
 Bram De Geyter, Bram.degeyter@palaplu.com
+Dwayne Coussement, Dwayne@intivoto.com
 
 ## License
 
