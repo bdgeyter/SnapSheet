@@ -21,7 +21,7 @@ public class SnapSheetViewController: UIViewController {
 	}
 
 	//MARK: - INTERFACE
-	public var viewController: UIViewController? {
+	public weak var viewController: UIViewController? {
 		didSet(oldViewController) {
 			guard viewController != oldViewController else { return }
 			removeOld(oldViewController)
