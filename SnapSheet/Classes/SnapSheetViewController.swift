@@ -32,7 +32,7 @@ public class SnapSheetViewController: UIViewController {
 	/// The state of the sheet
 	public var state: State = .closed
 	public enum State {
-		case open, closed, moving
+		case open, closed, moving, dismissing
 	}
 
 	/// The sheet will snap to bottom in closed state and top in open state of this layoutGuide.
@@ -86,6 +86,7 @@ public class SnapSheetViewController: UIViewController {
 		slideAlongYAxis.addChildBehavior(snap)
 		snap.action = { [weak self] in
 			guard let `self` = self else { return }
+			guard self.state != .dismissing else { return }
 			self.didUpdateSheetOriginTop?(self.sheet.frame.origin.y)
 		}
 	}
@@ -118,6 +119,9 @@ public class SnapSheetViewController: UIViewController {
 				let isTouchPointBelowClosedGuide = locationY > maxY
 				if  isTouchPointBelowClosedGuide {
 					dismiss(animated: true, completion: nil)
+					state = .dismissing
+					didUpdateSheetOriginTop?(view.bounds.size.height)
+					return
 				} else {
 					snap.snapPoint.y = maxY
 					state = .closed
@@ -128,7 +132,6 @@ public class SnapSheetViewController: UIViewController {
 				state = .open
 			}
 			didUpdateSheetOriginTop?(sheet.frame.origin.y)
-
 		default:
 			break
 		}
