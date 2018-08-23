@@ -10,7 +10,7 @@ import UIKit
 
 public class SnapSheetViewController: UIViewController {
 
-	public var didUpdateSheetOriginTop: ((CGFloat) -> (Void))?
+	public var didUpdateSheetFrame: ((CGRect) -> (Void))?
 
 	private var topAnchor: NSLayoutYAxisAnchor {
 		if #available(iOS 11.0, *) {
@@ -96,7 +96,7 @@ public class SnapSheetViewController: UIViewController {
 		snap.action = { [weak self] in
 			guard let `self` = self else { return }
 			guard self.state != .dismissing else { return }
-			self.didUpdateSheetOriginTop?(self.sheet.frame.origin.y)
+			self.didUpdateSheetFrame?(self.sheet.frame)
 		}
 	}
 
@@ -115,7 +115,7 @@ public class SnapSheetViewController: UIViewController {
 		case .changed:
 			//translation
 			snap.snapPoint.y += gesture.translation(in: sheet.superview).y
-			didUpdateSheetOriginTop?(sheet.frame.origin.y)
+			didUpdateSheetFrame?(sheet.frame)
 			gesture.setTranslation(.zero, in: sheet.superview)
 			state = .moving
 		case .ended:
@@ -129,7 +129,7 @@ public class SnapSheetViewController: UIViewController {
 				if  isTouchPointBelowClosedGuide {
 					dismiss(animated: true, completion: nil)
 					state = .dismissing
-					didUpdateSheetOriginTop?(view.bounds.size.height)
+					didUpdateSheetFrame?(CGRect(origin: CGPoint(x: 0.0, y: view.bounds.height), size: view.bounds.size))
 					return
 				} else {
 					snap.snapPoint.y = maxY
@@ -140,7 +140,7 @@ public class SnapSheetViewController: UIViewController {
 				snap.snapPoint.y = sheetLayoutGuide.layoutFrame.minY
 				state = .open
 			}
-			didUpdateSheetOriginTop?(sheet.frame.origin.y)
+			didUpdateSheetFrame?(sheet.frame)
 		default:
 			break
 		}

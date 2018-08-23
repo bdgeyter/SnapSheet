@@ -19,9 +19,9 @@ class ViewController: UIViewController {
 		tableVC.tableView.isScrollEnabled = false
 		destination.viewController = tableVC
 
-		destination.didUpdateSheetOriginTop = { [weak self] (newTop) in
+		destination.didUpdateSheetFrame = { [weak self] (newFrame) in
 			guard let `self` = self else { return }
-			let originY = self.view.frame.height - newTop
+			let originY = self.view.frame.height - newFrame.origin.y
 			self.fabBottomConstraint.constant = originY
 		}
 	}
