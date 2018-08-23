@@ -12,14 +12,6 @@ public class SnapSheetViewController: UIViewController {
 
 	public var didUpdateSheetFrame: ((CGRect) -> (Void))?
 
-	private var topAnchor: NSLayoutYAxisAnchor {
-		if #available(iOS 11.0, *) {
-			return view.safeAreaLayoutGuide.topAnchor
-		} else {
-			return view.topAnchor
-		}
-	}
-
 	//MARK: - INTERFACE
 	public weak var viewController: UIViewController? {
 		didSet(oldViewController) {
@@ -39,10 +31,10 @@ public class SnapSheetViewController: UIViewController {
 	/// Simply add constraints onto this layoutGuide to determine its position and size.
 	public let sheetLayoutGuide = UILayoutGuide()
 
-	public lazy var addSheetLayoutGuideConstraints: ((UILayoutGuide, UIView) -> Void) = { (sheetLayoutGuide, view) in
+	public var addSheetLayoutGuideConstraints: ((UILayoutGuide, UIView) -> Void) = { (sheetLayoutGuide, view) in
 		sheetLayoutGuide.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
 		sheetLayoutGuide.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-		sheetLayoutGuide.topAnchor.constraint(equalTo: self.topAnchor, constant: 20.0).isActive = true
+		sheetLayoutGuide.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 20.0).isActive = true
 		sheetLayoutGuide.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2/3).isActive = true
 	}
 
@@ -160,6 +152,16 @@ public class SnapSheetViewController: UIViewController {
 		childViewController.view.frame = sheet.bounds
 		sheet.addSubview(childViewController.view)
 		childViewController.didMove(toParentViewController: self)
+	}
+}
+
+fileprivate extension UIView {
+	var safeTopAnchor: NSLayoutYAxisAnchor {
+		if #available(iOS 11.0, *) {
+			return safeAreaLayoutGuide.topAnchor
+		} else {
+			return topAnchor
+		}
 	}
 }
 
