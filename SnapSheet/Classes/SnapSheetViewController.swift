@@ -66,8 +66,17 @@ public class SnapSheetViewController: UIViewController {
 	}()
 	private lazy var snap = UISnapBehavior(item: sheet, snapTo: CGPoint(x: self.sheetLayoutGuide.layoutFrame.midX, y: self.sheetLayoutGuide.layoutFrame.maxY))
 
+	public override func loadView() {
+		self.view = TouchForwardingView(frame: UIScreen.main.bounds)
+		self.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+	}
+
 	public override func viewDidLoad() {
 		super.viewDidLoad()
+
+		if let parentView = self.presentingViewController?.view {
+			(view as? TouchForwardingView)?.passthroughViews.append(parentView)
+		}
 
 		//Pan
 		let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
@@ -151,5 +160,23 @@ public class SnapSheetViewController: UIViewController {
 		childViewController.view.frame = sheet.bounds
 		sheet.addSubview(childViewController.view)
 		childViewController.didMove(toParentViewController: self)
+	}
+}
+
+private class TouchForwardingView: UIView {
+	var passthroughViews: [UIView] = []
+
+	override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+		guard let hitView = super.hitTest(point, with: event) else { return nil }
+		guard hitView == self else { return hitView }
+
+		for passthroughView in passthroughViews {
+			let point = convert(point, to: passthroughView)
+			if let passthroughHitView = passthroughView.hitTest(point, with: event) {
+				return passthroughHitView
+			}
+		}
+
+		return self
 	}
 }
