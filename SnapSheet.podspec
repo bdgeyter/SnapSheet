@@ -10,13 +10,13 @@ Pod::Spec.new do |s|
   s.name             = 'SnapSheet'
   s.version          = '0.1.0'
   s.summary          = 'An Apple Maps-style bottom sheet that snaps 👌'
-  s.swift_version    = '4.1'
+  s.swift_version    = '4.2'
   s.homepage         = 'https://github.com/bdgeyter/SnapSheet'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.authors          = { "Bram De Geyter" => "bram.degeyter@palaplu.com", "Dwayne Coussement" => "Dwayne@intivoto.com" }
   s.source           = { :git => 'https://github.com/bdgeyter/SnapSheet.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'SnapSheet/Classes/**/*'
 end
