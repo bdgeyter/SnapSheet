@@ -140,18 +140,18 @@ public class SnapSheetViewController: UIViewController {
 
 	private func removeOld(_ childViewController: UIViewController?) {
 		guard let childViewController = childViewController else { return }
-		willMove(toParentViewController: nil)
+		willMove(toParent: nil)
 		childViewController.view.removeFromSuperview()
-		childViewController.removeFromParentViewController()
+		childViewController.removeFromParent()
 	}
 
 	private func embedNew(_ childViewController: UIViewController?) {
 		guard let childViewController = childViewController else { return }
-		childViewController.willMove(toParentViewController: self)
-		addChildViewController(childViewController)
+		childViewController.willMove(toParent: self)
+		addChild(childViewController)
 		childViewController.view.frame = sheet.bounds
 		sheet.addSubview(childViewController.view)
-		childViewController.didMove(toParentViewController: self)
+		childViewController.didMove(toParent: self)
 	}
 }
 
