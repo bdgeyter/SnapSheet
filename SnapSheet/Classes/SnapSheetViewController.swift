@@ -22,7 +22,19 @@ public class SnapSheetViewController: UIViewController {
 	}
 
 	/// The state of the sheet
-	public var state: State = .closed
+	public var state: State = .closed {
+		didSet {
+			switch state {
+			case .open:
+				snap.snapPoint.y = sheetLayoutGuide.layoutFrame.minY
+			case .closed:
+				snap.snapPoint.y = sheetLayoutGuide.layoutFrame.maxY
+			case .dismissing, .moving:
+				return // no action.
+			}
+		}
+	}
+
 	public enum State {
 		case open, closed, moving, dismissing
 	}
@@ -124,12 +136,10 @@ public class SnapSheetViewController: UIViewController {
 					didUpdateSheetFrame?(CGRect(origin: CGPoint(x: 0.0, y: view.bounds.height), size: view.bounds.size))
 					return
 				} else {
-					snap.snapPoint.y = maxY
 					state = .closed
 				}
 			} else {
 				//swiping up
-				snap.snapPoint.y = sheetLayoutGuide.layoutFrame.minY
 				state = .open
 			}
 			didUpdateSheetFrame?(sheet.frame)
