@@ -38,6 +38,16 @@ public class SnapSheetViewController: UIViewController {
 		sheetLayoutGuide.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2/3).isActive = true
 	}
 
+	public func open() {
+		snap.snapPoint.y = sheetLayoutGuide.layoutFrame.minY
+		state = .open
+	}
+
+	public func close() {
+		snap.snapPoint.y = sheetLayoutGuide.layoutFrame.maxY
+		state = .closed
+	}
+
 	// MARK: - VIEWS
 	private let sheet: UIView = {
 		let view = UIView()
@@ -124,13 +134,11 @@ public class SnapSheetViewController: UIViewController {
 					didUpdateSheetFrame?(CGRect(origin: CGPoint(x: 0.0, y: view.bounds.height), size: view.bounds.size))
 					return
 				} else {
-					snap.snapPoint.y = maxY
-					state = .closed
+					close()
 				}
 			} else {
 				//swiping up
-				snap.snapPoint.y = sheetLayoutGuide.layoutFrame.minY
-				state = .open
+				open()
 			}
 			didUpdateSheetFrame?(sheet.frame)
 		default:
