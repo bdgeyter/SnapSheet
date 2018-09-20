@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
 	@IBOutlet weak var fabBottomConstraint: NSLayoutConstraint!
 	private let tableVC = SnapSheetTableViewController(style: .plain)
+	private let inputVC = SnapsheetInputViewController()
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let destination = segue.destination as? SnapSheetViewController else { return }
@@ -24,6 +25,13 @@ class ViewController: UIViewController {
 			let originY = self.view.frame.height - newFrame.origin.y
 			self.fabBottomConstraint.constant = originY
 		}
+	}
+
+	@IBAction func showInputViewController(_ sender: Any) {
+		let snapVC = SnapSheetViewController()
+		snapVC.viewController = inputVC
+		snapVC.modalPresentationStyle = .overCurrentContext
+		present(snapVC, animated: true, completion: nil)
 	}
 }
 
