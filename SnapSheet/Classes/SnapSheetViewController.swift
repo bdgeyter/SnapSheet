@@ -22,19 +22,7 @@ public class SnapSheetViewController: UIViewController {
 	}
 
 	/// The state of the sheet
-	public var state: State = .closed {
-		didSet {
-			switch state {
-			case .open:
-				snap.snapPoint.y = sheetLayoutGuide.layoutFrame.minY
-			case .closed:
-				snap.snapPoint.y = sheetLayoutGuide.layoutFrame.maxY
-			case .dismissing, .moving:
-				return // no action.
-			}
-		}
-	}
-
+	public var state: State = .closed
 	public enum State {
 		case open, closed, moving, dismissing
 	}
@@ -48,6 +36,16 @@ public class SnapSheetViewController: UIViewController {
 		sheetLayoutGuide.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 		sheetLayoutGuide.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 20.0).isActive = true
 		sheetLayoutGuide.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2/3).isActive = true
+	}
+
+	public func open() {
+		snap.snapPoint.y = sheetLayoutGuide.layoutFrame.minY
+		state = .open
+	}
+
+	public func close() {
+		snap.snapPoint.y = sheetLayoutGuide.layoutFrame.maxY
+		state = .closed
 	}
 
 	// MARK: - VIEWS
@@ -136,11 +134,11 @@ public class SnapSheetViewController: UIViewController {
 					didUpdateSheetFrame?(CGRect(origin: CGPoint(x: 0.0, y: view.bounds.height), size: view.bounds.size))
 					return
 				} else {
-					state = .closed
+					close()
 				}
 			} else {
 				//swiping up
-				state = .open
+				open()
 			}
 			didUpdateSheetFrame?(sheet.frame)
 		default:
