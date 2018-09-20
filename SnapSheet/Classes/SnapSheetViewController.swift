@@ -26,7 +26,9 @@ public class SnapSheetViewController: UIViewController {
 	/// The state of the sheet
 	public var state: State = .closed {
 		didSet {
-			didUpdateState?(state)
+			if oldValue != state {
+				didUpdateState?(state)
+			}
 		}
 	}
 	public enum State {
