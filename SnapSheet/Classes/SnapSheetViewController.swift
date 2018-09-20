@@ -21,8 +21,14 @@ public class SnapSheetViewController: UIViewController {
 		}
 	}
 
+	public var didUpdateState: ((State) ->  (Void))?
+
 	/// The state of the sheet
-	public var state: State = .closed
+	public var state: State = .closed {
+		didSet {
+			didUpdateState?(state)
+		}
+	}
 	public enum State {
 		case open, closed, moving, dismissing
 	}
